@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap"
+  rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
   <title>Holiday Search!</title>
 </head>
@@ -12,13 +14,31 @@
 <body class="flex-column min-100-vh">
   <header class="hero">
     <h1>Holiday Search!</h1>
+    <!--SELECTION LIST-->
+    <nav>
+        <label for="cars">Choose a car:</label>
+        <select name="cars" id="cars">
+          <option value="1">January</option>
+          <option value="2">February</option>
+        </select>
+    </nav>
+   
   </header>
-
 
   <main>
 
   </main>
 
+
+  <!--FAVORITES SECTION-->
+  <section class="tag-cloud-section">
+    <h5 class="tag-cloud-title">FAVORITES</h5>
+    <div class="tag-cloud">
+      <a class="tag-cloud-individual-tag" href="#">Peanut Butter<i class="fa fa-times-circle" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="./script.js"></script>
 </body>
 

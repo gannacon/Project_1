@@ -42,3 +42,9 @@ Saving the country will add it to your local storage so you can refresh the page
 "Learn More" will pull the wikipedia description for that holiday. Printed inside of the Div that is the holiday.
 
 ![wireframe pic](./images/Wireframe.png)
+
+
+user input for country code - 
+    linked button to take user to list of country codes.
+dropdowns for months and days - control values of user input
+
