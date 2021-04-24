@@ -7,28 +7,39 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap"
   rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Holiday Search!</title>
 </head>
 
 <body class="flex-column min-100-vh">
   <header class="hero">
     <h1>Holiday Search!</h1>
-    <!--SELECTION LIST-->
+    <!--INPUT-->
     <nav>
-        <label for="cars">Choose a car:</label>
-        <select name="cars" id="cars">
+      <form id="country-form">
+        <label for="country-input">Search for a Country using the two digit country code.</label>
+        <input type="text" id="country-input"><br>
+        <label for="month">city</label>
+        <select name="month" id="month">
           <option value="1">January</option>
           <option value="2">February</option>
         </select>
+        <select name="day" id="day">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="25">25</option>
+        </select>
+        <input id="add-country" type="submit" value="Submit">
+      </form>
     </nav>
-   
   </header>
 
-  <main>
-
+<!--HOLIDAY INFORMATION OUTPUT-->
+  <main id="holidayResult">
+    <div id="holidayOutput"></div>
+    <div id="buttonDiv"></div>
   </main>
-
 
   <!--FAVORITES SECTION-->
   <section class="tag-cloud-section">
@@ -39,7 +50,7 @@
   </section>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="./script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
