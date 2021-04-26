@@ -60,21 +60,25 @@ function renderData(data){
   var name = document.createTextNode(data[0].name);
   holidayName.appendChild(name);
   holidayContainer.appendChild(holidayName);
+  holidayName.setAttribute('style','margin-bottom: 2%; font-weight: bold;')
 
   var holidayDate = document.createElement('h2')
   var date = document.createTextNode(data[0].date);
   holidayDate.appendChild(date);
   holidayContainer.appendChild(holidayDate);
+  holidayDate.setAttribute('style', 'margin: 1%;')
 
   var holidayWeekDay = document.createElement('p')
-  var weekDay = document.createTextNode(data[0].week_day);
+  var weekDay = document.createTextNode('Day of the week: ' + data[0].week_day);
   holidayWeekDay.appendChild(weekDay);
   holidayContainer.appendChild(holidayWeekDay);
+  holidayWeekDay.setAttribute('style', 'margin: 1%;')
 
   var holidayType = document.createElement('p')
-  var type = document.createTextNode(data[0].type);
+  var type = document.createTextNode('Type of Holiday: ' + data[0].type);
   holidayType.appendChild(type);
   holidayContainer.appendChild(holidayType);
+  holidayType.setAttribute('style', 'margin: 1%;')
   
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // WIKIPEDIA API
@@ -94,6 +98,7 @@ function renderData(data){
   learnBtn.setAttribute('target', '_blank');
   learnBtn.appendChild(learnText);
   buttonsContainer.appendChild(learnBtn);
+  learnBtn.setAttribute('style', 'background-color: #E5E5E5; text-decoration: none; margin: 1%; color: black; border: 1px solid black;')
 });
 
 // CREATE SAVE BUTTON
@@ -107,7 +112,7 @@ saveBtn.dataset.date_month = data[0].date_month;
 var saveBtnText = document.createTextNode('Save');
 saveBtn.appendChild(saveBtnText);
 buttonsContainer.appendChild(saveBtn);
-
+saveBtn.setAttribute('style', 'margin: 1%;')
 };
 
 
