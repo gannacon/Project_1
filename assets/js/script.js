@@ -10,7 +10,15 @@ var dayInputEl = document.getElementById('day');
 var holidayContainer = document.getElementById('holidayOutput');
 var buttonsContainer = document.getElementById('buttonDiv');
 var favoritesContainer = document.getElementById('favorites');
-var favoriteHolidays = [];
+var favoriteHolidayArray = [];
+var FAVORITE_HOLIDAY_KEY = 'savedHoliday';
+
+//------------------------------------------------------------------------------------------------------------------------
+// INITIAL FUNCTION FOR WHEN PAGE FIRST RENDERS TO GET ALL PREVIOUSLY SAVED HOLIDAYS
+
+function init(){
+renderFavorites();
+};
 
 //------------------------------------------------------------------------------------------------------------------------
 /* FORM SUBMIT HANDLER. ON SUBMIT BUTTON CLICK IT WILL TAKE THE USERS INPUT AND IF
@@ -22,7 +30,7 @@ var formSubmitHandler = function(event) {
   var country = countryInputEl.value.trim();
   var month = monthInputEl.value;
   var day = dayInputEl.value;
-
+  
   if (countryInputEl) {
     holidaySearch(country, month, day); 
   } 
@@ -107,26 +115,79 @@ saveBtn.dataset.name = data[0].name;
 saveBtn.dataset.country = data[0].country;
 saveBtn.dataset.date_day = data[0].date_day;
 saveBtn.dataset.date_month = data[0].date_month;
-// more here
-//create an array of objects (contains the three values above)
+
 var saveBtnText = document.createTextNode('Save');
 saveBtn.appendChild(saveBtnText);
 buttonsContainer.appendChild(saveBtn);
 saveBtn.setAttribute('style', 'margin: 1%;')
+
 };
 
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// CREATE BUTTON ONCE BUTTON "SAVE" IS CLICKED AND NAME THE BUTTON THE NAME OF THE HOLIDAY AND COUNTRY
 function saveHoliday(event){
   console.log('Saved!');
   var target = event.target;
   if (target.matches('button')){
+    
+    var favoriteObject = {
+      holidayName: target.dataset.name,
+      country: target.dataset.country,
+      month: target.dataset.date_month,
+      day: target.dataset.date_day
+    }
+    
+    favoriteHolidayArray.push(favoriteObject);
+    console.log(favoriteHolidayArray)
+    localStorage.setItem(FAVORITE_HOLIDAY_KEY, JSON.stringify(favoriteHolidayArray));
+    renderFavorites();
+  }
+};
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// RENDERING BUTTONS FROM LOCAL STORAGE
+function renderFavorites(){
+  favoriteHolidayArray = JSON.parse(localStorage.getItem(FAVORITE_HOLIDAY_KEY));
+  if (favoriteHolidayArray === null){
+    favoriteHolidayArray = [];
+  }
+  favoritesContainer.innerHTML = '';
+  for (var i = 0; i<favoriteHolidayArray.length; i++){
+    var holiday = favoriteHolidayArray[i];
     var favoriteHoliday = document.createElement('button');
-    var favoriteHolidayText = document.createTextNode(target.dataset.name);
+    favoriteHoliday.dataset.country = holiday.country;
+    favoriteHoliday.dataset.date_month = holiday.month;
+    favoriteHoliday.dataset.date_day = holiday.day;
+    var favoriteHolidayText = document.createTextNode(holiday.country + '-' + holiday.holidayName);
     favoriteHoliday.appendChild(favoriteHolidayText);
     favoritesContainer.appendChild(favoriteHoliday);
   }
 };
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// PASSING THE VALUES FORM OUR LOCAL STORAGE
+function fetchSavedHoliday(event){
+  // var favoriteData = localStorage.getItem(FAVORITE_HOLIDAY_KEY);
+  // var parsedData = JSON.parse(favoriteData);
+  // // console.log('parsed Data', parsedData[0].country);
+  // var country = parsedData[0].country;
+  // var month = parsedData[0].month;
+  // var day = parsedData[0].day;
+  var target = event.target;
+  if (target.matches('button')){
+    
+  var country = target.dataset.country
+  var month = target.dataset.date_month
+  var day = target.dataset.date_day
+    
+  holidaySearch(country, month, day);
+  }
+
+};
+
 //another function that will load saved holidays and render to the screen. 
+favoritesContainer.addEventListener('click', fetchSavedHoliday);
 buttonsContainer.addEventListener('click', saveHoliday);
 userFormEl.addEventListener('submit', formSubmitHandler);
+
+init();
