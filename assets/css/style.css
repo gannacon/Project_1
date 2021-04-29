@@ -35,8 +35,23 @@ h1 {
   font-size: 46px;
 }
 
+h2 {
+  font-size: 20;
+  color: grey;
+  text-align: center;
+}
+
 form {
   text-align: center;
+  font-size: 35px;
+}
+
+input {
+  font-size: 35px;
+}
+
+select {
+  font-size: 35px;
 }
 
 main {
