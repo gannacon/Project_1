@@ -50,6 +50,57 @@ main {
   align-items: center;
 }
 
+/* #buttonDiv {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+/* LEARN MORE BUTTON STYLING */
+#LearnBtn {
+  background-color: #7b93a4;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  font-size: 16px;
+
+}
+
+#LearnBtn:hover {
+  background-color: #555;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+#LearnBtn:active {
+  background-color: black;
+}
+
+#SaveBtn {
+  background-color: #a48b7b; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+#SaveBtn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
 #holidayResult {
   height: 40%;
   width: 100%;
@@ -64,14 +115,6 @@ main {
   align-items: center;
   width: 100%;
   height: auto;
-}
-
-#buttonDiv {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .tag-cloud-section {

@@ -106,7 +106,7 @@ function renderData(data){
   learnBtn.setAttribute('target', '_blank');
   learnBtn.appendChild(learnText);
   buttonsContainer.appendChild(learnBtn);
-  learnBtn.setAttribute('style', 'background-color: #E5E5E5; text-decoration: none; margin: 1%; color: black; border: 1px solid black;')
+  learnBtn.setAttribute('id', 'LearnBtn');
 });
 
 // CREATE SAVE BUTTON
@@ -119,7 +119,7 @@ saveBtn.dataset.date_month = data[0].date_month;
 var saveBtnText = document.createTextNode('Save');
 saveBtn.appendChild(saveBtnText);
 buttonsContainer.appendChild(saveBtn);
-saveBtn.setAttribute('style', 'margin: 1%;')
+saveBtn.setAttribute('id', 'SaveBtn');
 
 };
 
