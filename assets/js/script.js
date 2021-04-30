@@ -70,6 +70,12 @@ function renderData(data){
   holidayContainer.appendChild(holidayName);
   holidayName.setAttribute('style','margin-bottom: 2%; font-weight: bold;')
 
+  var holidayLocation = document.createElement('h2')
+  var date = document.createTextNode(data[0].location);
+  holidayLocation.appendChild(date);
+  holidayContainer.appendChild(holidayLocation);
+  holidayLocation.setAttribute('style', 'margin: 1%;')
+
   var holidayDate = document.createElement('h2')
   var date = document.createTextNode(data[0].date);
   holidayDate.appendChild(date);
@@ -136,11 +142,12 @@ function saveHoliday(event){
       month: target.dataset.date_month,
       day: target.dataset.date_day
     }
-    
-    favoriteHolidayArray.push(favoriteObject);
-    console.log(favoriteHolidayArray)
-    localStorage.setItem(FAVORITE_HOLIDAY_KEY, JSON.stringify(favoriteHolidayArray));
-    renderFavorites();
+
+      favoriteHolidayArray.push(favoriteObject);
+      console.log(favoriteHolidayArray)
+      localStorage.setItem(FAVORITE_HOLIDAY_KEY, JSON.stringify(favoriteHolidayArray));
+      renderFavorites();
+
   }
 };
 
@@ -160,6 +167,7 @@ function renderFavorites(){
     favoriteHoliday.dataset.date_day = holiday.day;
     var favoriteHolidayText = document.createTextNode(holiday.country + '-' + holiday.holidayName);
     favoriteHoliday.appendChild(favoriteHolidayText);
+    favoriteHoliday.setAttribute('id', 'favoriteBtn');
     favoritesContainer.appendChild(favoriteHoliday);
   }
 };
@@ -167,12 +175,7 @@ function renderFavorites(){
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // PASSING THE VALUES FORM OUR LOCAL STORAGE
 function fetchSavedHoliday(event){
-  // var favoriteData = localStorage.getItem(FAVORITE_HOLIDAY_KEY);
-  // var parsedData = JSON.parse(favoriteData);
-  // // console.log('parsed Data', parsedData[0].country);
-  // var country = parsedData[0].country;
-  // var month = parsedData[0].month;
-  // var day = parsedData[0].day;
+
   var target = event.target;
   if (target.matches('button')){
     
@@ -185,7 +188,6 @@ function fetchSavedHoliday(event){
 
 };
 
-//another function that will load saved holidays and render to the screen. 
 favoritesContainer.addEventListener('click', fetchSavedHoliday);
 buttonsContainer.addEventListener('click', saveHoliday);
 userFormEl.addEventListener('submit', formSubmitHandler);

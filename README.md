@@ -1,15 +1,27 @@
 # Project_1
 Bootcamp Student Project #1
 
-# MACS PROJECT 1
-For this project we created a holiday searching app that will all the user to learn more once they search the holiday.
+HOLIDAY SEARCH APP!
+
+# MACS PROJECT 1 Description
+For this project we created a holiday searching app that will allow the user to search by country, month, and day to retrieve what holiday is on that day using the Holiday API. Then there will be a button that will allow the user to learn more about that holiday through the wikipedia API.
+
+# Technologies Used
+This project used Javascript, CSS, HTML as our coding languages. This project also used the Holiday and Wikipedia Public API's to retrieve data. 
+
+# Link to deployed application
+https://gannacon.github.io/Project_1/
+
+# Screenshot
+
+
 
 
 ## Application Requirements
 
-Your project should fulfill the following requirements:
+Our project should fulfill the following requirements:
 
-* Use a CSS framework other than Bootstrap.
+* Use a CSS framework.
 
 * Be deployed to GitHub Pages.
 
