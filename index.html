@@ -13,14 +13,17 @@
 
 <body class="flex-column min-100-vh">
   <header class="hero">
-    <h1>Holiday Search!</h1>
+    <img src="./images/holidaybanner.jpg" alt="Holiday Banner" id='banner'>
     <!--INPUT-->
     <nav>
       <form id="country-form">
         <label for="country-input">Search for a Country using the two digit country code.</label>
-        <input type="text" id="country-input">
-        <label for="month">city</label>
-        <select name="month" id="month">
+        <h2 id='fullList'>For a full list of country codes please click <a href="https://www.nationsonline.org/oneworld/country_code_list.htm" target="_blank">HERE</a> </h2>
+        <br>
+        <input type="search" name="search" placeholder="Search.." class="animated-search-form" id="country-input">
+        <br>
+        <label for="month"></label>
+        <select name="month" class="select-css1" id="month">
           <option value="1">January</option>
           <option value="2">February</option>
           <option value="3">March</option>
@@ -34,7 +37,7 @@
           <option value="11">November</option>
           <option value="12">December</option>
         </select>
-        <select name="day" id="day">
+        <select name="day" class="select-css2" id="day">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -67,9 +70,8 @@
           <option value="30">30</option>
           <option value="31">31</option>
         </select>
-        <input id="add-country" type="submit" value="Submit">
+        <input id="add-country" type="submit" class="submitBtn" value="Submit">
       </form>
-      <h2>For a full list of country codes please click <a href="https://www.nationsonline.org/oneworld/country_code_list.htm" target="_blank">HERE</a> </h2>
     </nav>
   </header>
 
@@ -82,8 +84,7 @@
   <!--FAVORITES SECTION-->
   <section class="tag-cloud-section">
     <h5 class="tag-cloud-title">FAVORITES</h5>
-    <div class="tag-cloud" id="favorites">
-      <a class="tag-cloud-individual-tag" href="#">Peanut Butter<i class="fa fa-times-circle" aria-hidden="true"></i></a>
+    <div class="tag-cloud" id='favorites'>
     </div>
   </section>
 
