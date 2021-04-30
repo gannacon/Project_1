@@ -14,7 +14,7 @@ https://gannacon.github.io/Project_1/
 
 # Screenshot
 
-
+![screenshot of deployed app](./images/screenshot.png)
 
 
 ## Application Requirements
